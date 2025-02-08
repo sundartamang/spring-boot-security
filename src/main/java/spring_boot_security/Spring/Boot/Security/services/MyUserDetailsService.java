@@ -20,7 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
         Users user = this.userRepo.findByEmail(username).orElseThrow(
                 () -> new ResourceNotFoundException("User", "email", username));
 
-        return null;
+        return user;
     }
 }
 
