@@ -30,8 +30,6 @@ public class UserServiceImpl implements UserService {
     public UsersDTO registerNewUSer(UsersDTO userDto) {
         Users user = this.modelMapper.map(userDto, Users.class);
         user.setPassword(encoder.encode(user.getPassword()));
-        System.out.println("****************************************");
-        System.out.println("user  ====>>>>>>>> " + user);
         Users newUser = this.userRepo.save(user);
         return this.modelMapper.map(newUser, UsersDTO.class);
     }
